@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: fa76e42be8aadb94c8d245db9314b64f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Door_Hinges
+    100002: Handles
+    100004: Lamp
+    100006: Lock
+    100008: Nails
+    100010: Police_Public_Call_Box_Behind
+    100012: Police_Public_Call_Box_Front
+    100014: Police_Public_Call_Box_Left
+    100016: Police_Public_Call_Box_Right
+    100018: St__John_Ambulance
+    100020: TARDIS
+    100022: //RootNode
+    400000: Door_Hinges
+    400002: Handles
+    400004: Lamp
+    400006: Lock
+    400008: Nails
+    400010: Police_Public_Call_Box_Behind
+    400012: Police_Public_Call_Box_Front
+    400014: Police_Public_Call_Box_Left
+    400016: Police_Public_Call_Box_Right
+    400018: St__John_Ambulance
+    400020: TARDIS
+    400022: //RootNode
+    2100000: Handles__Door_Hinges__Door_Lock___Grey
+    2100002: St__John_Ambulance
+    2100004: Lamp___Black
+    2100006: Lamp
+    2100008: Door_lock___Yellow
+    2100010: Nails
+    2100012: Police_Public_Call_Box_and_Windows
+    2100014: Blue_Wood
+    2100016: Bottom
+    2100018: PTFFUOPA_AOIO_CRTACPTO
+    2300000: Door_Hinges
+    2300002: Handles
+    2300004: Lamp
+    2300006: Lock
+    2300008: Nails
+    2300010: Police_Public_Call_Box_Behind
+    2300012: Police_Public_Call_Box_Front
+    2300014: Police_Public_Call_Box_Left
+    2300016: Police_Public_Call_Box_Right
+    2300018: St__John_Ambulance
+    2300020: TARDIS
+    3300000: Door_Hinges
+    3300002: Handles
+    3300004: Lamp
+    3300006: Lock
+    3300008: Nails
+    3300010: Police_Public_Call_Box_Behind
+    3300012: Police_Public_Call_Box_Front
+    3300014: Police_Public_Call_Box_Left
+    3300016: Police_Public_Call_Box_Right
+    3300018: St__John_Ambulance
+    3300020: TARDIS
+    4300000: Door_Hinges
+    4300002: St__John_Ambulance
+    4300004: Lamp
+    4300006: Lock
+    4300008: Nails
+    4300010: Handles
+    4300012: Police_Public_Call_Box_Left
+    4300014: Police_Public_Call_Box_Right
+    4300016: Police_Public_Call_Box_Behind
+    4300018: Police_Public_Call_Box_Front
+    4300020: TARDIS
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
