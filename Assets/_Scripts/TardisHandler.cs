@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using Vuforia;
 
 public class TardisHandler : MonoBehaviour
 {
+
+    public GameObject TardisInside;
+    public GameObject ImageTarget;
+
+    public GameObject BackgroundPlane;
 
     private AudioSource audioData;
     private bool AudioPlaying;
@@ -30,7 +36,7 @@ public class TardisHandler : MonoBehaviour
 
         SetMaterialTransparent();
 
-        //iTween.FadeTo(gameObject, 0, 3);
+        
 
     }
 
@@ -76,6 +82,18 @@ public class TardisHandler : MonoBehaviour
             CurrentTime += Time.deltaTime;
 
         } 
+    }
+
+
+    public void EnterTardis() {
+        VuforiaBehaviour.Instance.enabled = false;
+        SceneManager.LoadScene("Tardis_Inside");
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.GetComponent<Camera>() != null) {
+            EnterTardis();
+        }
     }
 
     // Srouce: https://www.patreon.com/posts/c-script-to-hide-7678022
