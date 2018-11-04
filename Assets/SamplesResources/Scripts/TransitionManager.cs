@@ -9,6 +9,7 @@ countries.
 using UnityEngine;
 using System.Collections.Generic;
 using Vuforia;
+using System.Collections;
 
 public class TransitionManager : MonoBehaviour
 {
@@ -19,19 +20,24 @@ public class TransitionManager : MonoBehaviour
     bool mBackward;
     BlackMaskBehaviour m_BlackMaskBehaviour;
     MixedRealityController.Mode mCurrentMode = MixedRealityController.Mode.HANDHELD_AR;
+
+    private bool CameraSet;
     #endregion // PRIVATE_MEMBER_VARIABLES
 
 
     #region PUBLIC_MEMBER_VARIABLES
-    static public bool isFullScreenMode = false; // If the camera should be splitted
+    static public bool isFullScreenMode = false; // If the camera should not be splitted
     public GameObject[] AROnlyObjects;
     public GameObject[] VROnlyObjects;
+
+    public SkyboxSwitcher SkySwitcher;
+    public Transform TimeLordPlacebo;
 
     [Range(0.1f, 5.0f)]
     public float transitionDuration = 1.5f; // seconds
 
     public Canvas StereoViewDivider;
-    public Animator m_Astronaut, m_Drone;
+
 
 
     public bool InAR { get { return mTransitionCursor <= 0.66f; } }
@@ -143,6 +149,14 @@ public class TransitionManager : MonoBehaviour
 
 
     #region PUBLIC_METHODS
+
+    public void EnterTardis() {
+        SkySwitcher.enabled = true;
+
+        FindObjectOfType<ViewTrigger>().Focused = true;
+
+    }
+
     public void Play(bool reverse)
     {
         // dont' restart playing during a transition
@@ -152,11 +166,13 @@ public class TransitionManager : MonoBehaviour
             mBackward = reverse;
             mTransitionCursor = mBackward ? 1 : 0;
         }
+       
     }
     #endregion // PUBLIC_METHODS
 
 
     #region PRIVATE_METHODS
+
     // on Vuforia Started
     void SetupMixedRealityMode()
     {
@@ -203,26 +219,21 @@ public class TransitionManager : MonoBehaviour
 
     void UpdateVisibleObjects()
     {
-        foreach (var go in VROnlyObjects)
+        if (!InAR && !CameraSet) {
+            foreach (var go in VROnlyObjects)
         {
             go.SetActive(!InAR);
         }
-
-        // Start Astronaut and Drone animations in VR mode
-        if (!InAR)
-        {
-            if (m_Astronaut)
-            {
-                m_Astronaut.SetBool("IsDrilling", !InAR);
-            }
-
-            if (m_Drone != null)
-            {
-                m_Drone.SetBool("IsScanning", !InAR);
-                m_Drone.SetBool("IsShowingLaser", !InAR);
-                m_Drone.SetBool("IsFacingObject", !InAR);
-            }
+        
+            CameraSet = true;
+            Camera.main.transform.parent = TimeLordPlacebo;
+            Camera.main.GetComponent<VuforiaBehaviour>().enabled = false;
+            Camera.main.transform.localPosition = Vector3.zero;
+            Camera.main.clearFlags = CameraClearFlags.Skybox;
+            Camera.main.GetComponent<VuforiaBehaviour>().enabled = true;
         }
+
+
     }
 
     void SetBlackMaskVisible(bool visible, float fadeFactor)

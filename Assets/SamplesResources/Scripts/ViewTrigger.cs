@@ -22,7 +22,7 @@ public class ViewTrigger : MonoBehaviour
     public float activationTime = 1.5f;
     public Material focusedMaterial;
     public Material nonFocusedMaterial;
-    public bool Focused { get; set; }
+    public bool Focused;
     #endregion // PUBLIC_MEMBER_VARIABLES
 
 
@@ -39,21 +39,21 @@ public class ViewTrigger : MonoBehaviour
     {
         cameraTransform = Camera.main.transform;
         mTransitionManager = FindObjectOfType<TransitionManager>();
-        GetComponent<Renderer>().material = nonFocusedMaterial;
+        //GetComponent<Renderer>().material = nonFocusedMaterial;
     }
 
     void Update()
     {
-        RaycastHit hit;
-        Ray cameraGaze = new Ray(cameraTransform.position, cameraTransform.forward);
-        Physics.Raycast(cameraGaze, out hit, Mathf.Infinity);
-        Focused = hit.collider && (hit.collider.gameObject == gameObject);
+        //RaycastHit hit;
+        //Ray cameraGaze = new Ray(cameraTransform.position, cameraTransform.forward);
+        //Physics.Raycast(cameraGaze, out hit, Mathf.Infinity);
+        //Focused = hit.collider && (hit.collider.gameObject == gameObject);
 
 
         if (mTriggered)
             return;
 
-        UpdateMaterials(Focused);
+        //UpdateMaterials(Focused);
 
         bool startAction = false || Input.GetMouseButtonUp(0);
 
@@ -111,7 +111,7 @@ public class ViewTrigger : MonoBehaviour
         mTriggered = false;
         mFocusedTime = 0;
         Focused = false;
-        UpdateMaterials(false);
+        //UpdateMaterials(false);
     }
     #endregion // PRIVATE_METHODS
 }

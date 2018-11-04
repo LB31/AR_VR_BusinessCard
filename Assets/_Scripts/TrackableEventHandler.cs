@@ -56,8 +56,7 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
         foreach (var component in canvasComponents)
             component.enabled = true;
 
-        foreach (Transform child in transform)
-            child.gameObject.SetActive(true);
+        ActivateAllChildren(transform, true);
 
     }
 
@@ -78,8 +77,17 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
         foreach (var component in canvasComponents)
             component.enabled = false;
 
-        foreach (Transform child in transform)
-            child.gameObject.SetActive(false);
+        ActivateAllChildren(transform, false);
     }
+
+    public void ActivateAllChildren(Transform parent, bool active) {
+        foreach(Transform child in parent) {
+            child.gameObject.SetActive(active);
+            if(child.childCount > 0) {
+                ActivateAllChildren(child, active);
+            }
+        }
+    }
+
 
 }

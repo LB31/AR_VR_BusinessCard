@@ -7,10 +7,7 @@ using Vuforia;
 public class TardisHandler : MonoBehaviour
 {
 
-    public GameObject TardisInside;
-    public GameObject ImageTarget;
-
-    public GameObject BackgroundPlane;
+    public TransitionManager tm;
 
     private AudioSource audioData;
     private bool AudioPlaying;
@@ -19,18 +16,17 @@ public class TardisHandler : MonoBehaviour
     private float CurrentTime = 0;
     private float CurrentAlpha = 0;
     private float SpawnStep;
-    private float CurrentStep;
+    private float CurrentStep = 0;
 
     private bool SpawnDirection = false;
     private float DirectionPeriod = 1f;
-    private float NextPeriod;
+    private float NextPeriod = 0;
     private float t;
     private bool InGettingBigger;
     
 
     private void Start() {
         audioData = GetComponent<AudioSource>();
-        
 
         SpawnStep = 255 / (SpawnTime / 2);
 
@@ -40,10 +36,19 @@ public class TardisHandler : MonoBehaviour
 
     }
 
+    void OnDisable() {
+        CurrentTime = 0;
+        CurrentAlpha = 0;
+        CurrentStep = 0;
+        NextPeriod = 0;
+        t = 0;
+        InGettingBigger = false;
+    }
+
 
     private void Update() {
         if (!AudioPlaying) {
-            audioData.Play();
+            //audioData.Play();
             AudioPlaying = true;
         }
         
@@ -75,6 +80,7 @@ public class TardisHandler : MonoBehaviour
             if (SpawnStep + CurrentStep <= 255) {
                 SetMaterialTransparent();
             } else {
+                // Finish the spawn
                 SetMaterialOpaque();
             }
 
@@ -85,14 +91,11 @@ public class TardisHandler : MonoBehaviour
     }
 
 
-    public void EnterTardis() {
-        VuforiaBehaviour.Instance.enabled = false;
-        SceneManager.LoadScene("Tardis_Inside");
-    }
+
 
     private void OnTriggerEnter(Collider other) {
         if(other.GetComponent<Camera>() != null) {
-            EnterTardis();
+            tm.EnterTardis();
         }
     }
 
